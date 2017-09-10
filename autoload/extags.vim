@@ -292,6 +292,11 @@ function s:put_taglist()
 endfunction
 
 function extags#select( tag )
+    " [Geng]:add current position to jumplist, so that we could jump back with CTRL+O
+    let target_line = line('.')
+    let target_col = col('.')
+    execute "normal " . target_line . "G" . target_col . "|"
+    
     " strip white space.
     let in_tag = substitute (a:tag, '\s\+', '', 'g')
     if match(in_tag, '^\(\t\|\s\)') != -1
