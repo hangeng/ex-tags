@@ -224,6 +224,8 @@ function extags#confirm_select(modifier)
         endif
     endtry
 
+    execute "KangarooPush"
+
     " go back to tags window
     exe 'normal! zz'
     call ex#hl#target_line(line('.'))
@@ -296,6 +298,7 @@ function extags#select( tag )
     let target_line = line('.')
     let target_col = col('.')
     execute "normal " . target_line . "G" . target_col . "|"
+    execute "KangarooPush"
     
     " strip white space.
     let in_tag = substitute (a:tag, '\s\+', '', 'g')
