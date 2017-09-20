@@ -61,7 +61,7 @@ function extags#init_buffer()
 
     if line('$') <= 1 && g:ex_tags_enable_help
         silent call append ( 0, s:help_text )
-        silent exec '$d'
+        " silent exec '$d'
     endif
 endfunction
 
@@ -334,7 +334,7 @@ function extags#select( tag )
     " add online help 
     if g:ex_tags_enable_help
         silent call append ( 0, s:help_text )
-        silent exec '$d'
+        " silent exec '$d'
         let start_line = len(s:help_text)
     else
         let start_line = 0
